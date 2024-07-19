@@ -13,7 +13,8 @@
 # limitations under the License.
 steps:
 - name: gcr.io/cloud-builders/git
-  args: ['clone', 'https://source.developers.google.com/p/$PROJECT_ID/r/$REPO_NAME']
+  entrypoint: 'bash'
+  args: ['-c', 'git clone https://github.com/jsolisrengifo/gcp-data-pipeline-source.git']
   id: 'check-out-source-code'
 - name: gcr.io/cloud-builders/mvn:3.5.0-jdk-8
   args: ['package', '-q']
